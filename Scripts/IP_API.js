@@ -33,7 +33,7 @@ var flags = new Map([[ "AC" , "🇦🇨" ] , [ "AF" , "🇦🇫" ] , [ "AI" , "�
 var body = $response.body;
 var obj = JSON.parse(body);
 var title =  emoji +'『'+ City_ValidCheck(obj['province'])+'』';//+Area_check(obj['country']);
-var subtitle =  "💋 "+ ISP_ValidCheck(obj['isp']) + " ➠ "+ obj['country'];
-var ip = obj['addr']; 
-var description = '服务商:'+obj['isp'] + '\n'+'定位: [' +obj["latitude"]+","+obj["longitude"]+"]"+ '\n' + 'IP:'+ obj['addr'] + '\n' +'时区:'+ obj['timezone'];
+var subtitle =' '+City_ValidCheck(obj['city'])+'-'+'('+ ISP_ValidCheck(obj['org'])+')'+' ';
+var ip = obj['query'];
+var description = '服务商:'+obj['isp'] + '\n'+'地区:' +City_ValidCheck(obj['regionName'])+ '\n' + 'IP:'+ obj['query'] + '\n' +'时区:'+ obj['timezone'];
 $done({title, subtitle, ip, description});
